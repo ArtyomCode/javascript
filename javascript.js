@@ -13,20 +13,18 @@ $(document).ready(function(){
         $("div.two").css('height', ++height);
       });
 
-    var top = $("div.two").position().top;
+    var top = 0;
       $("button.top").click(function(){
         $("div.two").css('top', ++top);
       });
 
       $("button.center").click(function(){
-        $("div.parent").css('width',0);
-        $("div.parent").css('margin','auto');
-        $("div.two").css('top', '160px');
-        top=160;
+        $("div.two").css('top', '0px');
+        top=0;
       });
 
       $("img.menubutt").click(function(){
-        $("div.menu").animate({left: '60%'}, "slow");
+        $("div.menu").animate({'padding-left': 0}, 3000);
       });
 
 
@@ -50,12 +48,17 @@ $(document).ready(function(){
   });
 
   var id = 0;
-
+  
   function myFunction() {
     var table = document.getElementById("table");
     var name = document.getElementById("name");
     var last = document.getElementById("lastname");
     var year = document.getElementById("year");
+
+    if(document.getElementById("name").value.length !== 0 && 
+    document.getElementById("lastname").value.length && 
+    document.getElementById("year").value.length)
+  {
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
     var cell2 = row.insertCell(-1);
@@ -66,7 +69,10 @@ $(document).ready(function(){
     cell2.innerHTML = name.value;
     cell3.innerHTML = last.value;
     cell4.innerHTML = year.value;
-    document.getElementById("name").value = " ";
-    document.getElementById("lastname").value = " ";
-    document.getElementById("year").value = " ";
+    document.getElementById("name").value = "";
+    document.getElementById("lastname").value = "";
+    document.getElementById("year").value = "";
+  }else{
+    alert("Fill the form completely, please!");
   }
+}
