@@ -48,13 +48,13 @@ $(document).ready(function(){
 
 
   });
-  
+
   var id = 0;
 
   function myFunction() {
     var table = document.getElementById("table");
-    var name = document.getElementById("fname");
-    var last = document.getElementById("lname");
+    var name = document.getElementById("name");
+    var last = document.getElementById("lastname");
     var year = document.getElementById("year");
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(-1);
@@ -66,4 +66,7 @@ $(document).ready(function(){
     cell2.innerHTML = name.value;
     cell3.innerHTML = last.value;
     cell4.innerHTML = year.value;
+    document.getElementById("name").value = " ";
+    document.getElementById("lastname").value = " ";
+    document.getElementById("year").value = " ";
   }
